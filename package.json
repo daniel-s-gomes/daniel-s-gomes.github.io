@@ -14,5 +14,6 @@
     "vite-plugin-glsl": "^1.3.0"
   },
   "name": "portfolio",
+  "homepage":"https://danielsmog.github.io/",
   "type": "module"
 }
