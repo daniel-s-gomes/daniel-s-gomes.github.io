@@ -1,0 +1,537 @@
+ /* remove default spacing */
+ /* force styling of type through styling, rather than elements */
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	font: inherit;
+ }
+
+ :root {
+ 	font-size: 16px;
+ 	--color-text: #f0f0f0;
+ 	--color-bg: #1d1a1a;
+ 	--color-card: #0f1010;
+
+ }
+
+ /* Fonts  */
+
+ @font-face {
+ 	font-display: swap;
+ 	font-family: 'LiberationMono';
+ 	src: url('fonts/LiberationMono.woff2') format("woff2");
+ 	font-weight: normal;
+ 	font-style: normal;
+ 	font-stretch: normal;
+ }
+
+
+ @font-face {
+ 	font-display: swap;
+ 	font-family: 'InterDisplay-Bold';
+ 	src: url('fonts/InterDisplay-Bold.woff2') format("woff2");
+ 	font-weight: normal;
+ 	font-style: normal;
+ 	font-stretch: normal;
+ }
+
+ @font-face {
+ 	font-display: swap;
+ 	font-family: 'InterDisplay-Regular';
+ 	src: url('fonts/InterDisplay-Regular.woff2') format("woff2");
+ 	font-weight: bold;
+ 	font-style: normal;
+ 	font-stretch: normal;
+ }
+
+ body {
+ 	margin: 0;
+ 	color: var(--color-text);
+ 	background-color: var(--color-bg);
+ 	font-family: 'InterDisplay-Regular';
+ 	font-size: 16px;
+ 	-webkit-font-smoothing: antialiased;
+ 	-moz-osx-font-smoothing: grayscale;
+
+
+ 	/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+ 	a:focus {
+ 		/* Provide a fallback style for browsers
+		that don't support :focus-visible */
+ 		outline: none;
+ 		background: lightgrey;
+ 	}
+
+ 	a:focus:not(:focus-visible) {
+ 		/* Remove the focus indicator on mouse-focus for browsers
+		that do support :focus-visible */
+ 		background: transparent;
+ 	}
+
+ 	a:focus-visible {
+ 		/* Draw a very noticeable focus style for
+		keyboard-focus on browsers that do support
+		:focus-visible */
+ 		outline: 2px solid white;
+ 		background: transparent;
+ 	}
+
+
+ 	#canvas-container {
+ 		position: fixed;
+ 		top: 0;
+ 		left: 0;
+ 		z-index: -1;
+ 		width: 100%;
+ 		height: 100%;
+
+ 		img {
+ 			visibility: hidden;
+ 			pointer-events: none;
+ 			position: absolute;
+ 		}
+
+ 	}
+
+
+
+ 	.frame {
+ 		padding: 3rem 5vw;
+ 		width: 100vw;
+ 		top: 10rem;
+ 		left: 0;
+ 		width: auto;
+ 		max-width: none;
+ 		height: 100vh;
+
+
+ 		.frame-title-wrap {
+ 			position: sticky;
+ 			top: 3rem;
+ 			display: flex;
+ 			/* align-items:start; */
+ 			flex-direction: column;
+
+
+
+ 			.frame-title {
+ 				margin: 0 0 1rem;
+ 				font-size: 2.5rem;
+ 				font-family: "InterDisplay-Bold";
+
+ 			}
+
+
+ 			nav {
+ 				display: flex;
+ 				flex-direction: column;
+ 				align-items: flex-start;
+ 				padding-top: 5rem;
+
+ 				>a {
+ 					text-decoration: none;
+ 					color: #b4b2b2;
+ 					font-size: 2.15rem;
+ 					font-family: 'LiberationMono';
+
+ 					-webkit-text-fill-color: #b4b2b2;
+ 					-webkit-text-stroke-color: white;
+ 					-webkit-text-stroke-width: .2px;
+
+ 					&:hover {
+						color: #fff; /* Backup for non-WebKit browsers */
+						-webkit-text-fill-color: #fff; /* Update fill color on hover */
+					}		
+ 				}
+
+ 			}
+
+
+ 		}
+
+
+ 	}
+
+
+
+ 	.salute {
+ 		padding: 0 5vw;
+ 		opacity: 1;
+ 		padding-bottom: 3rem;
+ 		backdrop-filter: blur(1px);
+
+ 		>h2 {
+ 			font-size: 2.25rem;
+ 			font-family: "InterDisplay-Bold";
+ 			margin-bottom: 3rem;
+ 		}
+
+ 		>p {
+ 			max-width: 66vw;
+ 			font-family: "InterDisplay-Regular";
+ 			font-size: 1.3rem;
+
+ 			@media only screen and (width >=1500px) {
+ 				max-width: 75vw;
+ 				font-size: 2rem;
+ 			}
+
+ 			@media only screen and (width <=1024px) {
+ 				max-width: none;
+ 			}
+
+ 		}
+
+ 	}
+
+ 	.content {
+ 		background-color: var(--color-bg);
+ 		padding: 0 5vw;
+
+ 		.latest {
+
+ 			ul>li {
+ 				margin: 2rem 0;
+ 				list-style: circle;
+ 				list-style-position: outside;
+
+ 				>p {
+ 					max-width: 66vw;
+ 					font-family: "InterDisplay-Regular";
+ 					font-size: 1rem;
+
+ 					@media only screen and (width <=1024px) {
+ 						max-width: none;
+ 					}
+
+ 					@media only screen and (width >=1500px) {
+ 						max-width: 75vw;
+ 						font-size: 2rem;
+ 					}
+ 				}
+ 			}
+ 		}
+
+ 		h2 {
+ 			font-family: 'InterDisplay-Bold';
+ 			font-size: 2.25rem;
+ 			letter-spacing: 0.25rem;
+ 			margin: 3rem 0;
+ 			padding-top: 3rem;
+ 		}
+
+ 		p {
+ 			font-family: 'InterDisplay-Regular';
+ 			letter-spacing: 0.235rem;
+ 			text-wrap: wrap
+ 		}
+
+ 		;
+
+ 		.works {
+ 			display: flex;
+ 			flex-wrap: wrap;
+ 			flex-direction: row;
+ 			justify-content: space-between;
+ 			row-gap: 4rem;
+ 			column-gap: 3rem;
+
+ 			.card {
+ 				flex-grow: 1;
+ 				padding: 15%;
+ 				display: flex;
+ 				flex-direction: column;
+ 				flex-wrap: wrap;
+ 				align-items: flex-start;
+ 				align-content: center;
+ 				background-color: var(--color-card);
+ 				font-family: 'InterDisplay-Regular';
+ 				cursor: pointer;
+ 				justify-content: center;
+
+ 				.youtube-container {
+ 					margin-top: 1rem;
+ 					display: none;
+ 					overflow: hidden;
+ 					aspect-ratio: 16/9;
+ 					width: 100%;
+ 					height: 0;
+ 					padding-bottom: 56.25%;
+ 					position: relative;
+
+ 					>iframe {
+ 						position: absolute;
+ 						width: 100%;
+ 						height: 100%;
+ 					}
+ 				}
+
+ 				/* cards */
+
+ 				>div:first-child {
+ 					display: flex;
+ 					width: 100%;
+ 					justify-content: space-between;
+ 					flex-wrap: wrap;
+
+ 					/* column-gap: 4rem;
+					row-gap: 3rem; */
+
+ 					>h4,
+ 					h5 {
+ 						font-family: 'InterDisplay-Bold';
+ 						font-size: 2.25rem;
+ 						letter-spacing: 0.25rem;
+
+ 					}
+ 				}
+
+
+
+ 				audio,
+ 				.work-data {
+ 					max-width: 80rem;
+ 					margin: 2rem 0;
+ 					display: none;
+
+ 					>p {
+ 						letter-spacing: 0.025rem;
+ 						line-height: 1.15;
+ 					}
+ 				}
+
+ 				&.is-flipped {
+ 					padding: 3rem;
+ 					width: 100%;
+ 					cursor: default;
+
+ 					.youtube-container {
+ 						display: flex;
+ 					}
+
+
+ 					>div:first-child {
+ 						align-items: center;
+ 						max-width: 80rem;
+
+ 						@media only screen and (width <=1024px) {
+ 							/* width: 90%; */
+ 							gap: 0;
+ 						}
+ 					}
+
+
+
+ 					audio {
+ 						display: block;
+ 						flex-grow: 2;
+ 						max-width: 45%;
+
+ 						@media only screen and (width <=1024px) {
+ 							padding: 1rem 0;
+ 							max-width: 100%;
+ 							font-size: 1vw;
+ 						}
+
+ 						&::-webkit-media-controls-panel {
+ 							background-color: #3f3f3f25;
+ 						}
+
+
+ 					}
+
+ 					.work-data {
+ 						display: block;
+ 					}
+
+ 					h4 {
+ 						width: 60%;
+
+ 						@media only screen and (width <=1024px) {
+ 							width: 90%;
+ 						}
+ 					}
+
+ 				}
+
+ 				&.card:nth-child(3) {
+ 					>div {
+ 						gap: 0rem;
+
+ 						>h5 {
+ 							font-family: 'InterDisplay-Bold';
+ 							font-size: 1.25rem;
+ 							letter-spacing: 0.25rem;
+ 							margin-bottom: 2rem;
+
+ 							>a {
+ 								text-decoration: none;
+ 								color: rgb(143, 74, 207);
+
+ 								&:hover {
+ 									color: var(--color-text);
+ 								}
+ 							}
+
+ 						}
+ 					}
+ 				}
+
+ 				.work-data {
+ 					margin-top: 1rem;
+ 					font-size: 1rem;
+ 					font-family: 'InterDisplay-Regular';
+
+ 					p {
+ 						letter-spacing: 0.125rem;
+ 						/* width: 100%; */
+
+ 						margin: .5rem 0;
+
+ 					}
+
+ 					em {
+ 						font-style: italic;
+ 						font-size: 1.25rem;
+
+ 						span {
+ 							display: block;
+ 							padding: 1rem 0;
+ 						}
+ 					}
+
+
+
+ 				}
+
+ 				/* animation effect layer; */
+ 				background-image: linear-gradient(to right, var(--color-text), var(--color-text)),
+ 				linear-gradient(to bottom, var(--color-text), var(--color-text)),
+ 				linear-gradient(to left, var(--color-text), var(--color-text)),
+ 				linear-gradient(to top, var(--color-text), var(--color-text));
+ 				background-size: 1px 0%,
+ 				0% 1px,
+ 				1px 0%,
+ 				0% 1px;
+ 				background-position: bottom left,
+ 				top left,
+ 				top right,
+ 				bottom right;
+ 				background-repeat: no-repeat;
+
+
+ 				/* &.active {
+ 				} */
+ 				animation: border_transition_in 1s forwards;
+
+ 				&:hover {
+ 					animation: border_transition_out 1s forwards;
+ 					color: var(--color-text);
+ 					/* opacity: .85; */
+ 				}
+
+
+ 			}
+
+
+ 		}
+
+ 	}
+
+ 	footer {
+ 		background-color: var(--color-bg);
+ 		padding: 3rem 0rem;
+ 		display: flex;
+ 		font-family: 'LiberationMono';
+ 		justify-content: space-between;
+ 		align-items: center;
+ 		position: relative;
+
+ 		.copy-text {
+ 			cursor: pointer;
+ 			color: red;
+ 			text-decoration: underline;
+ 		}
+
+ 		.notification {
+ 			position: absolute;
+ 			top: 10%;
+ 			left: 27%;
+ 			transform: translateX(-50%);
+ 			background-color: #333;
+ 			color: white;
+ 			padding: 5px 10px;
+ 			border-radius: 5px;
+ 			font-size: 14px;
+ 			opacity: 0;
+ 			visibility: hidden;
+ 			transition: opacity 0.3s ease, visibility 0.3s ease;
+ 			z-index: 10;
+ 		}
+
+ 		.notification.show {
+ 			opacity: 1;
+ 			visibility: visible;
+ 		}
+
+
+ 	}
+
+ }
+
+
+ /* card border animation */
+
+ @keyframes border_transition_in {
+ 	0% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%;
+ 	}
+
+ 	20% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			50% 1px;
+ 	}
+
+ 	40% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			0% 1px;
+ 	}
+ }
+
+ @keyframes border_transition_out {
+ 	60% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			0% 1px;
+ 	}
+
+ 	80% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			50% 1px;
+ 	}
+
+ 	100% {
+ 		background-size:
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%,
+ 			50% 1px,
+ 			1px 100%;
+ 	}
+ }
