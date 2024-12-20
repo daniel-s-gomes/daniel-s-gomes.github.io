@@ -282,6 +282,7 @@
  						font-family: 'InterDisplay-Bold';
  						font-size: 2.25rem;
  						letter-spacing: 0.25rem;
+						word-break: break-all;
 
  					}
  				}
@@ -452,7 +453,9 @@
  			color: red;
  			text-decoration: underline;
  		}
-
+		h4 {
+			word-break: break-all;
+		}
  		.notification {
  			position: absolute;
  			top: 10%;
