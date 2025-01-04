@@ -8,7 +8,7 @@ import vertex from "./shader/vertex.glsl";
 function changeImage() {
   const image = document.querySelector("img");
 
-  const rand4 = Math.floor(Math.random() * 4) + 1;
+  const rand4 = Math.floor(Math.random() * 3) + 1;
   image.src = 'images/' + rand4 + '.jpg';
 
 }
@@ -102,9 +102,9 @@ export default class Sketch {
     let that = this;
     this.settings = {
       grid: Math.floor((Math.random() * (100 - 1000) + 1000)),
-      mouse: (Math.random()) || 0.05,
-      strength: (Math.random() * (.5 - 1.) + 1.) || 1,
-      relaxation: Math.random() * (.99 - .7) + .7 || 0.99,
+      mouse: (Math.random() * (.5 - .85) + .85) || 0.5,
+      strength: (Math.random() * (.5 - .75) + .75) || 1,
+      relaxation: Math.random() * (.99 - .85) + .85 || .99,
     };
 
     console.log(this.settings);
