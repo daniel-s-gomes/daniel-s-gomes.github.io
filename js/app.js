@@ -330,6 +330,7 @@ document.querySelectorAll(".frame-title-wrap nav a").forEach(function (link) {
   });
 });
 
+//email copied on click
 const textElement = document.querySelector('.email');
 const notification = document.querySelector('.copy-text');
 

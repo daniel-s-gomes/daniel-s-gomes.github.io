@@ -139,9 +139,11 @@
  					-webkit-text-stroke-width: .2px;
 
  					&:hover {
-						color: #fff; /* Backup for non-WebKit browsers */
-						-webkit-text-fill-color: #fff; /* Update fill color on hover */
-					}		
+ 						color: #fff;
+ 						/* Backup for non-WebKit browsers */
+ 						-webkit-text-fill-color: #fff;
+ 						/* Update fill color on hover */
+ 					}
  				}
 
  			}
@@ -155,32 +157,45 @@
 
 
  	.salute {
- 		padding: 0 5vw;
  		opacity: 1;
  		padding-bottom: 3rem;
- 		backdrop-filter: blur(1px);
 
  		>h2 {
  			font-size: 2.25rem;
  			font-family: "InterDisplay-Bold";
- 			margin-bottom: 3rem;
- 		}
-
- 		>p {
- 			max-width: 66vw;
- 			font-family: "InterDisplay-Regular";
- 			font-size: 1.3rem;
-
- 			@media only screen and (width >=1500px) {
- 				max-width: 75vw;
- 				font-size: 2rem;
- 			}
-
- 			@media only screen and (width <=1024px) {
- 				max-width: none;
- 			}
+ 			padding: 3rem 5vw;
 
  		}
+
+ 		div {
+
+ 			&.blur {
+ 				backdrop-filter: blur(3px);
+ 				padding: 0;
+ 			}
+
+ 			>p {
+ 				padding: 0 5vw;
+ 				max-width: 66vw;
+ 				font-family: "InterDisplay-Regular";
+ 				font-size: 1.3rem;
+ 				line-height: 1.5;
+ 				letter-spacing: 0.01em;
+ 				overflow-wrap: break-word;
+
+ 				@media only screen and (width >=1500px) {
+ 					font-size: 1.75rem;
+ 				}
+
+ 				@media only screen and (width <=1024px) {
+ 					max-width: 100%;
+ 					font-size: 1.7rem;
+ 				}
+
+
+ 			}
+ 		}
+
 
  	}
 
@@ -198,15 +213,20 @@
  				>p {
  					max-width: 66vw;
  					font-family: "InterDisplay-Regular";
+ 					font-weight: bold;
  					font-size: 1rem;
-
- 					@media only screen and (width <=1024px) {
- 						max-width: none;
- 					}
+ 					line-height: 1.5;
+ 					letter-spacing: 0.01em;
+ 					overflow-wrap: break-word;
 
  					@media only screen and (width >=1500px) {
  						max-width: 75vw;
- 						font-size: 2rem;
+ 						font-size: 1.75rem;
+ 					}
+
+ 					@media only screen and (width <=1024px) {
+ 						max-width: 100%;
+ 						font-size: 1.7rem;
  					}
  				}
  			}
@@ -222,8 +242,12 @@
 
  		p {
  			font-family: 'InterDisplay-Regular';
- 			letter-spacing: 0.235rem;
- 			text-wrap: wrap
+ 			text-wrap: wrap;
+ 			font-weight: 500;
+ 			font-size: 1rem;
+ 			line-height: 1.5;
+ 			letter-spacing: 0.01em;
+ 			overflow-wrap: break-word;
  		}
 
  		;
@@ -282,7 +306,7 @@
  						font-family: 'InterDisplay-Bold';
  						font-size: 2.25rem;
  						letter-spacing: 0.25rem;
-						word-break: break-all;
+ 						word-break: break-all;
 
  					}
  				}
@@ -291,7 +315,7 @@
 
  				audio,
  				.work-data {
- 					max-width: 80rem;
+ 					max-width: 75vw;
  					margin: 2rem 0;
  					display: none;
 
@@ -313,7 +337,11 @@
 
  					>div:first-child {
  						align-items: center;
- 						max-width: 80rem;
+ 						max-width: 75vw;
+
+ 						@media only screen and (width >=1500px) {
+							max-width: 75vw;
+ 						}
 
  						@media only screen and (width <=1024px) {
  							/* width: 90%; */
@@ -384,24 +412,58 @@
  					font-family: 'InterDisplay-Regular';
 
  					p {
- 						letter-spacing: 0.125rem;
+ 						/* letter-spacing: 0.125rem; */
  						/* width: 100%; */
-
  						margin: .5rem 0;
+ 						line-height: 1.5;
+ 						letter-spacing: 0.01em;
+ 						overflow-wrap: break-word;
+
+ 						@media only screen and (width >=1500px) {
+ 							max-width: 75vw;
+ 							font-size: 1.5rem;
+ 						}
+
+ 						@media only screen and (width <=1024px) {
+ 							font-size: 1.5rem;
+ 						}
 
  					}
 
  					em {
  						font-style: italic;
- 						font-size: 1.25rem;
+ 						font-size: 1.2rem;
+ 						line-height: 1.5;
+ 						letter-spacing: 0.01em;
+ 						overflow-wrap: break-word;
+
+
+ 						@media only screen and (width >=1500px) {
+ 							max-width: 75vw;
+ 							font-size: 1.75rem;
+ 						}
+
+ 						@media only screen and (width <=1024px) {
+ 							font-size: 1.5rem;
+ 						}
 
  						span {
  							display: block;
  							padding: 1rem 0;
+
+ 							@media only screen and (width >=1500px) {
+ 								max-width: 75vw;
+ 								font-size: 1.75rem;
+ 								line-height: 1.2;
+
+ 							}
+
+ 							@media only screen and (width <=1024px) {
+ 								font-size: 1.75rem;
+ 								line-height: 1.1;
+ 							}
  						}
  					}
-
-
 
  				}
 
@@ -453,9 +515,11 @@
  			color: red;
  			text-decoration: underline;
  		}
-		h4 {
-			word-break: break-all;
-		}
+
+ 		h4 {
+ 			word-break: break-all;
+ 		}
+
  		.notification {
  			position: absolute;
  			top: 10%;
