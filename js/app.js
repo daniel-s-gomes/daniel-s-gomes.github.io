@@ -102,9 +102,9 @@ export default class Sketch {
     let that = this;
     this.settings = {
       grid: Math.floor((Math.random() * (100 - 1000) + 1000)),
-      mouse: (Math.random() * (.5 - .85) + .85) || 0.5,
-      strength: (Math.random() * (.5 - .75) + .75) || 1,
-      relaxation: Math.random() * (.99 - .85) + .85 || .99,
+      mouse: (Math.random() * (.05 - .25) + .25) || .15,
+      strength: (Math.random() * (.025 - .075) + .075) ||  .01,
+      relaxation: Math.random() * (.98 - .85) + .85 || .98,
     };
 
     console.log(this.settings);
