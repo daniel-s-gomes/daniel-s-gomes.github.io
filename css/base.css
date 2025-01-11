@@ -164,10 +164,11 @@
  			font-size: 2.25rem;
  			font-family: "InterDisplay-Bold";
  			padding: 3rem 5vw;
-			word-break: break-all;
-			 @media only screen and (width <=1024px) {
-				font-size: 1.75rem;
-			 }
+ 			word-break: break-all;
+
+ 			@media only screen and (width <=1024px) {
+ 				font-size: 1.75rem;
+ 			}
 
  		}
 
@@ -242,9 +243,10 @@
  			letter-spacing: 0.25rem;
  			margin: 3rem 0;
  			padding-top: 3rem;
-			 @media only screen and (width <=1024px) {
-				font-size: 1.75rem;
-			 }
+
+ 			@media only screen and (width <=1024px) {
+ 				font-size: 1.75rem;
+ 			}
  		}
 
  		p {
@@ -314,9 +316,10 @@
  						font-size: 2.25rem;
  						letter-spacing: 0.25rem;
  						word-wrap: break-word;
-						 @media only screen and (width <=500px) {
-							font-size: 5vw;
-						 }
+
+ 						@media only screen and (width <=500px) {
+ 							font-size: 5vw;
+ 						}
  					}
  				}
 
@@ -335,9 +338,13 @@
  				}
 
  				&.is-flipped {
- 					padding: 3rem;
+ 					@media only screen and (width >=500px) {
+ 						padding: 3rem;
+ 					}
+
  					width: 100%;
  					cursor: default;
+
 
  					.youtube-container {
  						display: flex;
@@ -349,7 +356,7 @@
  						max-width: 75vw;
 
  						@media only screen and (width >=1500px) {
-							max-width: 75vw;
+ 							max-width: 75vw;
  						}
 
  						@media only screen and (width <=1024px) {
