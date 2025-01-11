@@ -338,8 +338,8 @@
  				}
 
  				&.is-flipped {
- 					@media only screen and (width >=500px) {
- 						padding: 3rem;
+ 					@media only screen and (width <=500px) {
+ 						padding: 3rem 0;
  					}
 
  					width: 100%;
