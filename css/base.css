@@ -127,8 +127,8 @@
  				flex-direction: column;
  				align-items: flex-start;
  				padding-top: 5rem;
-				line-height: 1.3;
-				
+ 				line-height: 1.3;
+
  				>a {
  					text-decoration: none;
  					color: #b4b2b2;
@@ -210,6 +210,46 @@
  		padding: 0 5vw;
 
  		.latest {
+
+ 			/* News highlight link styles */
+			.news-highlight p {
+				max-width: 66vw;
+				font-family: "InterDisplay-Regular";
+				font-weight: bold;
+				font-size: 1rem;
+				line-height: 1.5;
+				letter-spacing: 0.01em;
+				overflow-wrap: break-word;
+
+				@media only screen and (width >=1500px) {
+					max-width: 75vw;
+					font-size: 1.75rem;
+				}
+
+				@media only screen and (width <=1024px) {
+					max-width: 100%;
+					font-size: 1.5rem;
+				}
+			}
+
+			.news-highlight ul {
+				padding-left: 0;
+			}
+
+			.news-highlight li {
+				list-style: none;
+			}
+
+ 			.news-highlight a {
+ 				color: #979494;
+ 				text-decoration: none;
+				font-size: 1.3rem;
+ 				transition: color 0.2s;
+ 			}
+
+ 			.news-highlight a:hover {
+ 				color: #333;
+ 			}
 
  			ul>li {
  				margin: 2rem 0;
@@ -333,11 +373,11 @@
  					margin: 2rem 0;
  					display: none;
 
-		 				
+
  					>p {
  						letter-spacing: 0.025rem;
  						line-height: 1.15;
-						opacity: 0.85;
+ 						opacity: 0.85;
  					}
  				}
 
@@ -469,8 +509,8 @@
  						span {
  							display: block;
  							padding: 1rem 0;
-							line-height: 1.75;
-							font-size: 1.375rem;
+ 							line-height: 1.75;
+ 							font-size: 1.375rem;
 
  							@media only screen and (width >=1500px) {
  								max-width: 75vw;
